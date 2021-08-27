@@ -1,0 +1,30 @@
+plugins {
+    id "java-gradle-plugin"
+    id "maven-publish"
+}
+
+repositories {
+    maven { url "https://plugins.gradle.org/m2/" }
+}
+
+group "org.miscar"
+version "1.0.0"
+
+dependencies {
+    api "edu.wpi.first:gradle-cpp-vscode:0.12.0"
+    api "edu.wpi.first:native-utils:2021.1.1"
+    api "edu.wpi.first:GradleRIO:2021.3.1"
+}
+
+gradlePlugin {
+    plugins {
+        utilities {
+            id = "org.miscar.gradle-utilities"
+            implementationClass = "org.miscar.UtilitiesPlugin"
+        }
+    }
+}
+
+wrapper {
+    gradleVersion = "6.0.1"
+}
