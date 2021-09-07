@@ -1,6 +1,7 @@
 plugins {
     id "java-gradle-plugin"
     id "maven-publish"
+    id "com.gradle.plugin-publish" version "0.14.0"
 }
 
 repositories {
@@ -8,7 +9,7 @@ repositories {
 }
 
 group "org.miscar"
-version "1.0.0"
+version "2021.1.1"
 
 dependencies {
     api "edu.wpi.first:gradle-cpp-vscode:0.12.0"
@@ -20,9 +21,17 @@ gradlePlugin {
     plugins {
         utilities {
             id = "org.miscar.gradle-utilities"
+            displayName = "FRC Gradle Utilities"
+            description = "A few utilities for C++ teams using gradle for FRC"
             implementationClass = "org.miscar.UtilitiesPlugin"
         }
     }
+}
+
+pluginBundle {
+    website = "https://github.com/miscar/gradle-utilities"
+    vcsUrl = "https://github.com/miscar/gradle-utilities"
+    tags = ["frc"]
 }
 
 wrapper {
